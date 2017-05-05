@@ -1,0 +1,25 @@
+5/1/2017
+
+Finished first draft
+
+5/2/2017
+
+TESTING
+
+Issues (non-compiler issues)
+	X--Not adding to catDict
+		Changed "if not retKey" to "if retKey"
+	X--<NO CATEGORY> is being added when it is already an option, so delete the "No category" option or vice versa
+	--can just press enter 
+Commands
+	cd ~/Documents/Code/BECU\ console/Testing\ Data/
+	../Python/asker_main.py Statement_pt1.csv test.json result.txt
+
+Scenarios
+	[X] Full categories file 
+	[X] Empty categories file
+	[X] Checked result exists and looks OK 
+	[X] Checked categories file updated
+	[X] Added categories and keys
+	[] Added categories and without keys
+	[X] Skipped adding categories 

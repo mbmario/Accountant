@@ -1,0 +1,66 @@
+TO DO
+-the main is DONE except printing result in some form at the end
+-work on developing, and test where appropriate (this order) 
+	X priceFromLine
+	x searchForKeys
+	x catSet
+	friend
+	categoriesReader
+	categoriesWriter
+	
+
+CONTENTS
+-pickled object of category with keywords
+	set of sets
+-asker.py
+
+-Runs with BECU credit csv as arg
+
+-result is a list of tuples
+
+-For each line not \"payment thank you\"
+	for each item object 
+		desc (truncated at number)
+		keyword
+		category (character)
+		amount
+	-checks if each keyword is in the line
+		if "*varied"
+			prompt: which category?
+		-if yes:
+			fill out automatically
+		-if not:
+			A) What is the keyword here? a,b,c,d, etc
+				-> add in keyword
+			B) What is the category?
+				-covert 
+	When all done
+		-total each category and display sums
+
+CATEGORIES
+
+
+RESOLVE
+-What form should the result have?
+
+DO LATER
+	-test if input is JSON
+	-put in support for filtering current month
+	-put it into a xlsx with month tabs
+	-Add some interface
+	-Add support for debit
+	-Edit and merge categories
+	-Make some cool graphics
+	-different prices go in different spreadsheets that add up somehow
+	-Make it a non-picked outfile, like a spreadsheet
+
+NOTES
+	-Writing the descriptions, then the testing, before any code
+	-Gave up because it was hard to think about how best to write the tests
+
+SCRATCH
+	line = "\"2/28/2017\",\"\",\"ALAMO RENT-A-CAR         SPOKANE      WA\",\"195.46\",\"\""
+
+	"\"2/22/2017\",\"\",\"ALASKA AIR  0272133977675SEATTLE      WA\",\"312.40\",\"\""
+
+	sampleDict = {'PCC': 'food', 
