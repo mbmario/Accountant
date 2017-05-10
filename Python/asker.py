@@ -177,9 +177,27 @@ def categoriesWriter(outfile, catDict):
 		json.dump(catDict, f)
 
 
+#---------------------------------#
 
+def aggregateCSVs(csvs):
+	# takes in list of csvs or csvdir and builds an aggregate full csv
 
-	
+	if (transactionsFiles == str):
+		# good to go
+		return transactionsFiles
 
+	else if (transactionsFiles == list):
+		# cat *
+		return aggFile
 
+	else if (transactionsFiles == )# directory
+		# cat ./*
+		return aggFile
+
+	# cases that get to this point should be caught in checkFiles
+	return "Error"
+#---------------------------------#	
+
+def addTotals(result, outfile):
+	# add up results by month and print to outfile
 

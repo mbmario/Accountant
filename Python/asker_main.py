@@ -2,17 +2,19 @@
 
 
 # MAIN
-# [1] transactionsFile: a csv of transactions
-# [2] categoriesFile: a .json of keywords and categories
-# [3][opt] outfile: where the result is written to
+# transactionsFile: a csv of transactions
+# [1] categoriesFile: a .json of keywords and categories
+# [2][opt .json] outfile: where the result is written to
+# [3+] csv, dir, or multiple csvs
 
 from asker import *
 from pprint import pprint
 
-[transactionsFile, categoriesFile, outfile] = argCheck()
+[transactionsFiles, categoriesFile, outfile] = argCheck()
 
 
 fileStatus = checkFiles(transactionsFile, categoriesFile)
+
 if (fileStatus != "success"):
 	import sys
 	sys.exit(fileStatus)
@@ -62,6 +64,5 @@ with open(transactionsFile) as f:
 # now save the categories file
 categoriesWriter(categoriesFile, catDict)		
 
-# and save the results
-with open(outfile, 'wt') as out:
-	pprint(result, stream=out)
+# aggregate the results and print to outfile
+addTotals(result, outfile)
