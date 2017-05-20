@@ -2,10 +2,10 @@
 
 
 # MAIN
-# transactionsFile: a csv of transactions
+
 # [1] categoriesFile: a .json of keywords and categories
 # [2][opt .json] outfile: where the result is written to
-# [3+] csv, dir, or multiple csvs
+# [3+] csv, dir, or multiple csvs of transactions
 
 from asker import *
 from pprint import pprint

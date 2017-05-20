@@ -1,22 +1,18 @@
 
 def argCheck():
-	# haven't figured out how to write a unit test for this one
 
 	import sys
 
-	if (len(sys.argv) < 3):     
-		print("Please link a transaction CSV file and categories file")
+	if (len(sys.argv) < 4):     
+		print("[1] categoriesFile: a .json of keywords and categories \n[2][opt .json] outfile: where the result is written to \n[3+] csv, dir, or multiple csvs of transactions")
 		sys.exit(0)
 
-	transactionFiles = str(sys.argv[1])
-	categoriesFiles = str(sys.argv[2])
+	categoriesFiles = str(sys.argv[1])
+	outfile = str(sys.argv[2])
+	# convert rest to str array
+	transactionFiles = [str(i) for i in sys.argv[3:]] 
 
-	if (len(sys.argv) == 4):     
-		outfile = sys.argv[3]
-	else:
-		outfile = "./categories.json" 
-
-	return [transactionFiles, categoriesFiles, outfile]
+	return [transactionFiles, categoriesFile, outfile]
 
 #---------------------------------#
 

@@ -1,7 +1,15 @@
 
 from asker import *
 
+def test_argCheck(): 
+	# [1] categoriesFile: a .json of keywords and categories
+	# [2][opt .json] outfile: where the result is written to
+	# [3+] csv, dir, or multiple csvs of transactions
 
+	[transactionFiles, categoriesFile, outfile] = argCheck()
+	print("categoriesFile", categoriesFiles)
+	print("transactionFiles: ", transactionFiles)
+	print("outfile", outfile)	
 
 #---------------------------------#
 
