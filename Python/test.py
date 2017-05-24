@@ -1,15 +1,15 @@
 
 from asker import *
 
-def test_argCheck(): 
+def test_checkArgs(): 
 	# [1] categoriesFile: a .json of keywords and categories
 	# [2] outfile: where the result is written to
 	# [3+] csv, dir, or multiple csvs of transactions
 
-	[transactionFiles, categoriesFile, outfile] = argCheck()
-	print("categoriesFile", categoriesFile)
+	[transactionFiles, categoriesFile, outfile] = checkArgs()
+	print("categoriesFile: ", categoriesFile)
 	print("transactionFiles: ", transactionFiles)
-	print("outfile", outfile)	
+	print("outfile: ", outfile)	
 
 #---------------------------------#
 

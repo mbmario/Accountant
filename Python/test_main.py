@@ -6,7 +6,7 @@ from test import *
 #categoriesTestFile = ""
 #testDirs= "/home/mario/Documents/Code/BECU console/Testing Data/TestDirs"
 
-test_argCheck()
+test_checkArgs()
 #test_checkFiles(testDirs)
 
 
