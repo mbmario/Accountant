@@ -50,11 +50,10 @@ DO LATER
 	-put in support for filtering current month
 	-put it into a xlsx with month tabs
 	-Add some interface
-	-Add support for debit
-	-Edit and merge categories
+	-Add support for debit, including ignoring credits
+	-Ability to edit and merge categories / totals
 	-Make some cool graphics
 	-different prices go in different spreadsheets that add up somehow
-	-Make it a non-picked outfile, like a spreadsheet
 
 NOTES
 	-Writing the descriptions, then the testing, before any code

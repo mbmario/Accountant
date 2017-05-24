@@ -18,4 +18,4 @@ test_argCheck()
 
 #test_friend()
 
-test_rw()
+#test_rw()

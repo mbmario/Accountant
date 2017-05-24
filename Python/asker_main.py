@@ -10,10 +10,10 @@
 from asker import *
 from pprint import pprint
 
-[transactionsFiles, categoriesFile, outfile] = argCheck()
+[transactionFiless, categoriesFile, outfile] = argCheck()
 
 
-fileStatus = checkFiles(transactionsFile, categoriesFile)
+fileStatus = checkFiles(transactionFiles, categoriesFile, outfile)
 
 if (fileStatus != "success"):
 	import sys
@@ -30,7 +30,7 @@ catDict = categoriesReader(categoriesFile)
 # gets set of categories
 catSet =  getCatSet(catDict)
 
-with open(transactionsFile) as f:
+with open(transactionFiles) as f:
 	for line in f:
 		
 		price = priceFromLine(line)

@@ -1,44 +1,57 @@
 
-def argCheck():
+def checkArgs():
 
 	import sys
+	import os
 
 	if (len(sys.argv) < 4):     
 		print("[1] categoriesFile: a .json of keywords and categories \n[2][opt .json] outfile: where the result is written to \n[3+] csv, dir, or multiple csvs of transactions")
 		sys.exit(0)
 
-	categoriesFiles = str(sys.argv[1])
+	categoriesFile = str(sys.argv[1])
 	outfile = str(sys.argv[2])
+
 	# convert rest to str array
 	transactionFiles = [str(i) for i in sys.argv[3:]] 
+
+	# if transactionsFiles is dir, return contents as list
+	if (os.file.isdir(transactionFiles)):
+		transactionFiles = list(os.walk(transactionFiles))[0][2]
 
 	return [transactionFiles, categoriesFile, outfile]
 
 #---------------------------------#
 
-def checkFiles(transactionFile, categoriesFile):
+def checkFiles(transactionFiles, categoriesFile, outfile):
 	# ensures that there are 2 existing files, and returns them or error
 	# transactions file has to exist
 	# will create a categories file if it doesn't exist
 
 	import os
-	import sys
 
-	import pdb
+	#import pdb
 	#pdb.set_trace()
-	transactionFile = os.getcwd() + "/" + transactionFile
-	categoriesFile = os.getcwd() + "/" + categoriesFile
 
+	# fail categoriesFile is not file
+	if not (os.path.isfile(categoriesFile)):
+		return "Cannot find categoriesFile"
 
-	if not (os.path.isfile(transactionFile)):
-		return("File not found")
+	# fail if outfile has a / and could not be a directory 
+	if ("/" in outfile) & (not (os.path.isdir(os.path.dirname(outfile))): 
+		return "outfile is not in a valid directory"
 
-	if not "csv" == transactionFile.split(".")[-1]:
-		return("transactions must be .csv")
-
-	
+	# ensure outfile is json, create it if DNE
+	outfile = os.path.splitext(outfile)[0] + ".json"
 	if not (os.path.isfile(categoriesFile)):
 		catStream = open(categoriesFile, 'w')
+
+	# verify transactionFiles is either a .csv, or list of .csvs
+	if (isinstance(transactionFiles, str) & (os.path.splitext(outfile)[1] != ".csv"):
+		return "transactionFile is not a csv"
+
+	for potentialCSV in transactionFiles:
+		if (os.path.splitext(potentialCSV)[1] != ".csv")):
+			return "" + potentialCSV + " is not a csv"
 
 	return "success"
 
@@ -182,13 +195,13 @@ def aggregateCSVs(csvs):
 		# good to go
 		return transactionsFiles
 
-	else if (transactionsFiles == list):
-		# cat *
-		return aggFile
+	# elif (transactionsFiles == list):
+	# 	# cat *
+	# 	return aggFile
 
-	else if (transactionsFiles == )# directory
-		# cat ./*
-		return aggFile
+	# elif (transactionsFiles == ): # directory
+	# 	# cat ./*
+	# 	return aggFile
 
 	# cases that get to this point should be caught in checkFiles
 	return "Error"
@@ -196,4 +209,4 @@ def aggregateCSVs(csvs):
 
 def addTotals(result, outfile):
 	# add up results by month and print to outfile
-
+	pass
