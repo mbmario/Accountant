@@ -5,9 +5,8 @@ Change
 	DONE argCheck: print args when there is no input
 	DONE checkFiles: check multiple csvs or dirs
 	DONE checkFiles: check outfile is json
-	rewrite and recheck test_checkFiles
 	aggregateCSVs: write it
-	checkFiles: move fileStatus stuff to checkFiles from main
+	checkFiles: move fileStatus stuff to checkFiles from main (??)
 	write addTotals
 	prompt for adjustment?
 	

@@ -29,29 +29,27 @@ def checkFiles(transactionFiles, categoriesFile, outfile):
 
 	import os
 
-	#import pdb
-	#pdb.set_trace()
-
 	# fail categoriesFile is not file
 	if not (os.path.isfile(categoriesFile)):
 		return "Cannot find categoriesFile"
 
 	# fail if outfile has a / and could not be a directory 
-	if ("/" in outfile) & (not (os.path.isdir(os.path.dirname(outfile))): 
+	if (("/" in outfile) & (not (os.path.isdir(os.path.dirname(outfile))))): 
 		return "outfile is not in a valid directory"
 
 	# ensure outfile is json, create it if DNE
 	outfile = os.path.splitext(outfile)[0] + ".json"
-	if not (os.path.isfile(categoriesFile)):
-		catStream = open(categoriesFile, 'w')
+	if not (os.path.isfile(outfile)):
+		catStream = open(outfile, 'w')
 
 	# verify transactionFiles is either a .csv, or list of .csvs
-	if (isinstance(transactionFiles, str) & (os.path.splitext(outfile)[1] != ".csv"):
-		return "transactionFile is not a csv"
-
-	for potentialCSV in transactionFiles:
-		if (os.path.splitext(potentialCSV)[1] != ".csv")):
-			return "" + potentialCSV + " is not a csv"
+	if (isinstance(transactionFiles, str)):
+		if (os.path.splitext(transactionFiles)[1] != ".csv"):
+			return "transactionFile is not a csv"
+	else:
+		for potentialCSV in transactionFiles:
+			if (os.path.splitext(potentialCSV)[1] != ".csv"):
+				return "" + potentialCSV + " is not a csv"
 
 	return "success"
 

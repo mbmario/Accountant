@@ -13,7 +13,7 @@ def test_checkArgs():
 
 #---------------------------------#
 
-def test_checkFiles(testDirs):
+def test_checkFiles():
 	# test checkFiles by checking 3 sample dirs
 	
 	# cat.txt
@@ -22,58 +22,28 @@ def test_checkFiles(testDirs):
 	import os
 	import pdb
 
-	os.chdir(testDirs)
+
+	testDir1 = "/home/mario/Documents/Code/Accountant/Accountant/TestingData"
+	os.chdir(testDir1)
 
 	failure = "test_checkFiles failed, "
 	status = "success"
 
 	print("testing checkFiles")
 
+	# bad files
+	if (checkFiles("asdf.csv", "asdf/2.csv", "asdf3.json") == "success"):
+		print("failed fake files")
+
+	# good files
+	if (checkFiles("Statement.csv", "Statement.csv", "asdf3.json") != "success"):
+		print("failed correct single transaction file")
 	# import pdb
-
-	# nonexistent trans file (exit)
-	print("testing nonexistent trans file")
-	result = checkFiles("./asdfasdfas.csv", "./cat.txt") 
-	if not (result == "File not found"):
-		print("...failed!")
-		status = "failure"
-	else:
-		print("...passed!")
-
-	# wrong trans ext (exit)
-	print("testing wrong trans ext")
-	result = checkFiles("./trans.txt", "./cat.txt") 
-	if not (result == ("transactions must be .csv")):
-		print("...failed!")
-		status = "failure"
-	else:
-		print("...passed!")
-
-	# missing categories file
-	print("testing missing categories file")
-	
-	if os.path.isfile("./catNEW.csv"):
-		os.remove("./catNEW.csv")
-
-	result = checkFiles("./trans.csv", "./catNEW.txt") 
-
-	if not (result == "success") & (os.path.isfile("./catNEW.txt")):
-		print("...failed!")
-		status = "failure"
-	else:
-		print("...passed!")
-	
-	# regular case
-	print("testing correct files case")
-	result = checkFiles("./trans.csv", "./cat.txt") 
-	if not (result == "success"):
-		print("...failed!")
-		status = "failure"
-	else:
-		print("...passed!")
-
-	return status
-
+	# pdb.set_trace()
+	if (checkFiles(["Statement.csv", "Statement_pt2.csv"], "Statement.csv", "asdf3.json") != "success"):
+		print("failed correct list transaction files")
+		
+ 
 
 
 #---------------------------------#

@@ -6,8 +6,8 @@ from test import *
 #categoriesTestFile = ""
 #testDirs= "/home/mario/Documents/Code/BECU console/Testing Data/TestDirs"
 
-test_checkArgs()
-#test_checkFiles(testDirs)
+#test_checkArgs()
+test_checkFiles()
 
 
 #test_priceFromLine()
